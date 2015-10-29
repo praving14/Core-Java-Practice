@@ -76,28 +76,5 @@ public class Exercises {
         }
     }
 
-    public static void main(String[] args){
-        int lowerLimit, upperLimit, digitToReverse;
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Input the lower limit of a number: ");
-        lowerLimit = in.nextInt();
-        System.out.println("Input the upper limit of a number: ");
-        upperLimit = in.nextInt();
-        // This should give you the sum and average
-         sumAndAverage(lowerLimit,upperLimit);
-
-        System.out.println("Input the integer digit that you want to reverse");
-        digitToReverse = in.nextInt();
-        // if input is 1234 then  output should be 4321
-        extractDigits(digitToReverse);
-
-        // printSquareBoard(10);
-
-        // printCheckerBoard(10);
-
-        // timeTable(9);
-
-
-    }
 }

@@ -53,7 +53,7 @@ public class ConversionToDecimals{
             } else if (indHexStrChar >= 'A' && indHexStrChar <= 'F') {
                 decimal += (indHexStrChar - 'A' + 10) * Math.pow(16, i);
             } else {
-                System.out.println("Invalid Hex number. The Hexadecimal numbers should only include 10-9 and A-F");
+                System.out.println("Invalid Hex number. The Hexadecimal numbers should only include 0-9 and A-F");
                 break;
             }
         }

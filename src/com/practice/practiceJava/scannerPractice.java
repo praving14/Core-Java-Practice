@@ -3,32 +3,57 @@ package com.practice.practiceJava;
 import java.util.*;
 /**
  * Created by Pravin on 10/26/2015.
+ * @author Pravin
+ * @version 1.0
+ *
  */
-public class scannerPractice {
-/*
- * In this class, i will be using scanner to get the input from the users. I will primarily forcus on ths string and play with
- * strings, try to manipulate them.
- */
-    public static void reverseString(String word){
-        int wordlength = word.length();
-        char[] words  = new char[wordlength];
-        for (int i = 0 ; i< wordlength ; ++i){
-            words[i] = word.charAt(i);
-        }
+public class  scannerPractice{
 
-        for (int i = wordlength -1 ; i>=0 ; --i){
-            System.out.print(words[i]);
-        }
-        System.out.println();
+
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.println(" Input the String that you want to reverse= ");
+        String userStringInput = input.next();
+        simplyReverseString(userStringInput);
     }
 
-    /*
-     * virtual Keypad of a phone:
-     * On your phone keypad, the alphabets are mapped to digits as follows:
-     * ABC(2), DEF(3), GHI(4), JKL(5), MNO(6), PQRS(7), TUV(8), WXYZ(9).
+    /**
+     *  Use of String Builder or String Buffer class to reverse the String
+     * @param input         String data type: The String that will be reversed
+     * @return newString    String data type: The string where each character  is reversed
+     */
+    public static String reverseStringUsingStringBuilder(String input){
+
+        String oldString = input;
+        String newString = new StringBuilder(oldString).reverse().toString();
+        System.out.println(newString);
+        return newString;
+    }
+
+    /**
+     * Reverse string algorithm
+     * @param input         String data type: The original String that will be reversed
+     * @return reverse      String data type: The string where each character  is reversed
      */
 
-    static void phoneKeyPad(String input){
+    public static void simplyReverseString(String input){
+        String original = input;
+        String reverse =  "";
+        int length =  original.length();
+        for (int i =length-1; i>=0; --i){
+            reverse += original.charAt(i);
+        }
+        System.out.println(reverse);
+    }
+
+
+    /**
+     * Virtual Phone Keypad: Gives the consecutive digit value for each of the character in the String
+     * ABC(2), DEF(3), GHI(4), JKL(5), MNO(6), PQRS(7), TUV(8), WXYZ(9).
+     * @param input     String data type;
+     */
+
+    public void phoneKeyPad(String input){
         String word = input.toLowerCase();
         int lengthOfWord = word.length();
         System.out.println("The sequence of keypad digits for the word is: ");
@@ -57,18 +82,31 @@ public class scannerPractice {
             else if (word.charAt(i) == 'w' || word.charAt(i) == 'x' ||word.charAt(i) == 'y' || word.charAt(i) == 'z') {
                 System.out.print(9);
             }
-
+            System.out.println();
         }
     }
 
 
+    /**
+     * Palindromic test: The method test to see if the word is palindromic: madam is same when reversed.
+     * @param input             The word that will undergo the palindromic test
+     * @return  boolean type    It returns true if the test pass and false if the test false.
+     */
+   public boolean palindromeTest(String input){
+        String oldWord = input;
+        boolean result;
+        String reverseWord = reverseStringUsingStringBuilder(oldWord);
+        if (reverseWord.equalsIgnoreCase(oldWord)){
+            result = true;
+            System.out.println("The word is palindromic!");
+        }else{
+            result = false;
+            System.out.println("The word is not palindromic!");
+        }
+        return result;
 
-    public static void main(String[] args){
-        String word1;
-        Scanner in = new Scanner(System.in);
-        System.out.println("Type a String: ");
-        word1 = in.next();
-        reverseString(word1);
-        phoneKeyPad(word1);
     }
+
+
+
 }

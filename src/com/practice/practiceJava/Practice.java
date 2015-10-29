@@ -5,22 +5,25 @@ import java.lang.Math;
 import java.util.Scanner;
 
 /**
- * Created by Pravin on 10/26/2015.
+ *
+ * @author Pravin
+ * @version 1.0
+ * @date 10/26/2015
  */
-public class Practice {
-    /*
-    * Practicing Java
-    */
+public class Practice{
 
-
-    // fibonacci numbers and their average;
-    // we can do similar for tribonacci numbers;
-    static void fibonacciNumbers(int f1, int f2, int num) {
-        int fn;
+    /**
+     * Thei smethod prints out the sequence of fibonacci number using the basic concept: f(n) = f(n-1)+f(n-2)
+     * @param f1    The first value of fibonacci number
+     * @param f2    The second value of fibonacci number
+     * @param num   The maximum number of fibonacci sequence to print
+     */
+    public void fibonacciNumbers(int f1, int f2, int num) {
+        double fn;
         int n = 3;
 
-        int fminus1 = f1;
-        int fminus2 = f2;
+        double fminus1 = f1;
+        double fminus2 = f2;
         double sum = fminus1 + fminus2;
         System.out.print("Fibinacci Number = [" + fminus1 + " " + fminus2 + " ");
         while (n <= num) {
@@ -35,8 +38,27 @@ public class Practice {
         System.out.println("Average: = " + sum / num);
     }
 
-    // calculating pi-value
-    static double piValue(int max) {
+    /**
+     * The method that prints out the Fibonacci sequence as double data type using the formula:
+     * @param num The number of fibonacci sequence to create
+     */
+    public void CreatefibonacciNumberUsingFormula(int num){
+        double Fibonaccinumbers;
+        System.out.print("Fibonacci Numbers :[ ");
+        for (int i =1 ; i< num ; ++i){
+            Fibonaccinumbers = (1 / Math.sqrt(5.0))*(Math.pow(((1.0+ Math.sqrt(5.0))/2.0),i) - Math.pow(((1.0 - Math.sqrt(5.0)))/2.0,i));
+            System.out.print( Fibonaccinumbers + " " );
+        }
+        System.out.print(" ]");
+        System.out.println();
+    }
+
+    /**
+     * The method tried to find the PiValue to the nearest of precision
+     * @param max The maximum number of time, the method will run to get the pi value as accurately as possible
+     * @return    Returns the piValue as double data type
+     */
+    public double piValue(int max) {
         double pi = 0.0;
         for (int i = 1; i < max; i += 2) {
             if (i % 4 == 1) {
@@ -49,36 +71,6 @@ public class Practice {
     }
 
 
-    public static void main(String[] args) {
-        double harmonicSumL2R = 0.0;
-        double harmonicSumR2L = 0.0;
-        int maxDenominator = 50000;
-        double difference = harmonicSumL2R - harmonicSumR2L;
-
-        for (int i = 1; i <= maxDenominator; ++i) {
-            harmonicSumL2R += (1.0 / i);
-        }
-        for (int i = maxDenominator; i >= 1; --i) {
-            harmonicSumR2L += (1.0 / i);
-        }
-
-        System.out.println("From left to right, Harmonic sum is: " + harmonicSumL2R);
-        System.out.println("From right to left, Harmonic sum is: " + harmonicSumR2L);
-        System.out.printf("The difference between two Harmonic sum is: %.15f ", harmonicSumR2L - harmonicSumL2R);
-        System.out.println();
-
-        System.out.println("Pi-value is: " + piValue(maxDenominator));
-        System.out.println("pi-value constant is: " + Math.PI);
-        Scanner in = new Scanner(System.in);
-        System.out.println("Give me the first fibonacci integer value: ");
-        int f1 = in.nextInt();
-        System.out.println("Give me the second fibonacci integer value: ");
-        int f2 = in.nextInt();
-        System.out.println("Now how many fibonacci sequence do you want? ");
-        int maxNum = in.nextInt();
-
-        fibonacciNumbers(f1,f2,maxNum);
-    }
 }
 
 
