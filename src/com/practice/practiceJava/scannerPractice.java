@@ -95,15 +95,13 @@ public class  scannerPractice{
    public boolean palindromeTest(String input){
         String oldWord = input;
         boolean result;
-        String reverseWord = reverseStringUsingStringBuilder(oldWord);
-        if (reverseWord.equalsIgnoreCase(oldWord)){
-            result = true;
-            System.out.println("The word is palindromic!");
-        }else{
-            result = false;
-            System.out.println("The word is not palindromic!");
+        for (int i =0 ; i < oldWord.length()/2; ++i){
+            if (oldWord.charAt(i) != oldWord.charAt(oldWord.length() -(i+1))){
+                result = false;
+            } else
+                result =true;
         }
-        return result;
+       return result;
 
     }
 
