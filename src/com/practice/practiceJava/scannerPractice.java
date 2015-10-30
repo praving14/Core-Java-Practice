@@ -94,7 +94,7 @@ public class  scannerPractice{
      */
    public boolean palindromeTest(String input){
         String oldWord = input;
-        boolean result;
+        boolean result = false;
         for (int i =0 ; i < oldWord.length()/2; ++i){
             if (oldWord.charAt(i) != oldWord.charAt(oldWord.length() -(i+1))){
                 result = false;

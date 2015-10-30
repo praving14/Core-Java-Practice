@@ -2,6 +2,7 @@ package com.practice.practiceJava;
 
 import java.lang.Math;
 /**
+ * Lesson: Static method, Static field,
  * Created by Pravin on 10/27/2015.
  * @author Pravin
  * This class contains methods to convert binary or hexadecimal numbers to Decimal numbers
