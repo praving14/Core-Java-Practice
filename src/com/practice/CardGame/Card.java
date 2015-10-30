@@ -14,7 +14,7 @@ public class Card {
         this.suit = suit;
         this.rank = rank;
         // this.fieldName is used mainly if the local variable or parameter has the same name as the name of the field in the class
-        // Shadowing:
+        // Shadowing
     }
 
  // set and get method:
