@@ -13,9 +13,11 @@ public class Driver {
         DeckOfCard cards =new DeckOfCard();
         Card dealtCard = cards.dealCard();
         System.out.println(cards.displayCard(dealtCard));
+        cards.reset();
         cards.shuffleCards();
-        dealtCard =cards.dealCard();
-        System.out.println(cards.displayCard(dealtCard));
+        for (int i = 0; i<52; ++i) {
+            System.out.println(cards.displayCard(cards.dealCard()));
+        }
 
 
 

@@ -18,6 +18,7 @@ public class PrintPatterns {
 
     //Constructor
     public PrintPatterns(char character) {
+
         this.character = character;
     }
 

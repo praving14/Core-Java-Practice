@@ -2,7 +2,10 @@ package com.practice.practiceJava;
 
 import java.util.Scanner;
 
+
 /**
+ * Lesson: while loop, for loop, a% b
+ * @author Pravin
  * Created by Pravin on 10/26/2015.
  */
 public class Exercises {

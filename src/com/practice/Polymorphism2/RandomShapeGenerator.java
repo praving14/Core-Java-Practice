@@ -1,5 +1,6 @@
 package com.practice.Polymorphism2;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Random;
  */
 public class RandomShapeGenerator {
 
-    private Random random = new Random(47);
+    private SecureRandom random = new SecureRandom();
 
     public Shape next(){
         switch(random.nextInt(3)){

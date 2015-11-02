@@ -6,7 +6,7 @@ package com.practice.figures;
 public class trialDriver {
     public static void main(String[] args) {
         PrintPatterns pp = new PrintPatterns('*');
-        pp.diamond(10);
+        pp.diamond(5);
 
     }
 }

@@ -69,15 +69,23 @@ public class DeckOfCard{
 
     }
 
+    public void reset(){
+        dealtCard = 0;
+    }
+
+    public void returnCard(){
+        dealtCard = dealtCard - 1;
+    }
+
     /**
      * The ShuffleCards method swap two random cards, basically simulating a shuffle.
      */
     public void shuffleCards(){
         int newIndex;
         SecureRandom rand = new SecureRandom();
-        for (int i =0; i < 52; ++i){
+        for (int i =0; i < 52; ++i) {
             newIndex = rand.nextInt(52);
-            swapCards(i,newIndex);
+            swapCards(i, newIndex);
         }
 
 
