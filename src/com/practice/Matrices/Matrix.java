@@ -56,13 +56,12 @@ public class Matrix {
     }
 
 
-    public static int[][] identityMatrix( int[][] a){
-        int rowLength = a.length;
-        int columnLength = a[0].length;
-        int[][] c =  new int[rowLength][columnLength];
-        if (isSquareMatrix(a)){
-            for (int i =0 ;i<rowLength; ++i)
-                for (int j =0 ; j< columnLength ;++i){
+    public static int[][] identityMatrix( int a){
+
+        int[][] c =  new int[a][a];
+
+            for (int i =0 ;i<a; ++i)
+                for (int j =0 ; j<a ;++i){
                     if (i == j){
                         c[i][j]= 1;
                     }else {
@@ -70,20 +69,16 @@ public class Matrix {
                     }
 
                 }
-        }else {
-            System.out.println("The dimension mismatch. The Identity matrix need to be a Square matrix.");
-        }
+
         return c;
     }
 
 
-    public static int[][] createRandomMatrix(int[][] a) {
-        int rowLength = a.length;
-        int columnLength = a[0].length;
-        int[][] c = new int[rowLength][columnLength];
+    public static int[][] createRandomMatrix(int m , int n) {
+        int[][] c = new int[m][n];
         SecureRandom rand = new SecureRandom();
-        for (int i = 0; i < rowLength; ++i)
-            for (int j = 0; j < columnLength; ++j) {
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j) {
                 c[i][j] = rand.nextInt();
             }
         return c;
