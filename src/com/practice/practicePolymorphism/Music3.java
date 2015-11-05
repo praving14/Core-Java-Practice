@@ -9,7 +9,7 @@ public class Music3 {
         i.play(Note.MIDDLE_C);
     }
 
-    public static void tuneAll (Instrument[] e){ //Did you see that we are using the array of objetcs in here
+    public static void tuneAll (Instrument[] e){ //Did you see that we are using the array of objects in here
         for (Instrument i:e){
             tune(i);
         }

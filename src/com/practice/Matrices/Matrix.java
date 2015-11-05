@@ -355,19 +355,37 @@ public class Matrix {
         return c;
     }
 
+
+    public static double[][] rowEchelonForm(double[][] a){
+        return a;
+    }
+
     // Augment matrix
 
-    //echelon form
+    // row echelon form ----- important
 
     // Co-factor of matrix
 
-    // Rank of the Matrix
+    // find the basis of the column matrix
+
+    /**
+     *  Rank of the Matrix (need row echelon form first)
+     *  The rank of A equals the number of
+     *  nonzero rows in the row echelon form, which equals
+     *  the number of leading entries.
+     *  If matrix has fewer columns than rows, its maximum rank is equal
+     *  to the maximum number of linearly independent columns.
+     *  If matrix has fewer rows than columns, its maximum rank is equal
+     *  to the maximum number of linearly independent rows.
+     */
+
+    // Nullity of matrix : rank + nullity = number of all columns in the matrix A.
 
     // Determinant of the matrix
 
     // Inverse of the matrix
 
-    // EigenValues and EigenVectors
+    // Eigen Values and Eigen Vectors
 
     // Upper triangular form, lower triangular form
 
