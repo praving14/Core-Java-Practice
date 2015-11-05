@@ -1,5 +1,7 @@
 package com.practice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,6 +18,7 @@ public class Prime {
      * @return       true if prime
      * @return       false if not prime
      */
+
     public static boolean isPrime(int n){
         boolean result = true;
         if (n <= 1){
@@ -34,6 +37,7 @@ public class Prime {
         Scanner scan  = new Scanner(System.in);
         int lower;
         int upper;
+        int counter = 0;
         System.out.println("How many times do you want to test for Prime numbers? ");
         int num = scan.nextInt();
         // The number of times to be tested has to be greater than 0
@@ -58,25 +62,29 @@ public class Prime {
                 System.out.println("Enter upper bound: ");
                 upper = scan.nextInt();
             }
-            // The lower bound has to less than upper bound
-            while ( lower >= upper){
+            // The lower bound has to be less than or equal to upper bound
+            while ( lower > upper){
                 System.out.println("The lower bound must be greater than upper bound!");
                 System.out.println("Enter lower bound: ");
                 lower = scan.nextInt();
                 System.out.println("Enter upper bound: ");
                 upper = scan.nextInt();
             }
-
-            boolean result;
             for (int i = lower ; i <= upper ;++i){
-                result = isPrime(i);
-                if (result == true){
-                    System.out.println(i + " is a prime number");
+                if (isPrime(i)){
+                    //counter to count the number of prime numbers
+                    counter =counter+1;
+                    System.out.println(i + " is a prime number.");
                 }
             }
+            // if there are no prime numbers, the counter equals zero.
+            if (counter ==0){System.out.println("There are no prime numbers.");}
+
         // The num value is like a counter to count the number of times the test should be run
         num =num -1;
+            counter =0;
         }
-
     }
+
+
 }
