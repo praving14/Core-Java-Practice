@@ -36,7 +36,11 @@ public class Matrix {
     public static void printMatrix(double[][] b) {
         for (int i = 0; i < b.length; ++i) {
             for (int j = 0; j < b[0].length; ++j) {
-                System.out.printf("%5d", b[i][j]);
+                if (b[i][j] == -0.00) {
+                    System.out.printf("%8.2f",0.00);
+                } else {
+                    System.out.printf("%8.2f", b[i][j]);
+                }
             }
             System.out.println();
         }
@@ -355,19 +359,72 @@ public class Matrix {
         return c;
     }
 
+    /**
+     * This method converts the Matrix to its Reduced row echelon form
+     * Reduced row echelon form is really important while working with Matrices
+     * A reduced row echelon form has to follow following rules:
+     *  All non-zero rows precede (that is appear above) zero rows when both types are contained
+     *  in the matrix
+     *  The first non zero element of each nonzero row is unity
+     *  When the first non zero element of a row appears in column c, then all other elements in column c are zero
+     *  The first non-zero element of any nonzero row appears in a later column (further to the right) than the
+     *  first non zero element of any preceeding row
+     *
+     * @param a The double mxn matrix that needs to be converted to ow reduced echelon form
+     * @return   The double mxn matrix in reduced row echelon form
+     */
+    public static double[][] reducedRowEchelonForm(double[][] a){
+        int lead = 0;
+        int rowLength = a.length;
+        int columnLength = a[0].length;
+        for (int r =0 ; r < rowLength ;++r){
+            if (columnLength <= lead)
+                break;
+            int i = r;
+            while (a[i][lead] == 0){
+                //System.out.println("test");
+                //Matrix.printMatrix(a);
+                 i = i + 1;
+                if (rowLength == i){
+                    i = r;
+                    //System.out.println("check");
+                    //Matrix.printMatrix(a);
+                    lead =lead + 1;
+                    if (lead >= columnLength)
+                        break;
+                }
+            }
+            if (lead >= columnLength)
+                break;
+            RowOperations.swapRows(a,i,r);
+            if (a[r][lead] != 0.0 ) {
+                double k = 1.0 / a[r][lead];
+                RowOperations.multiplyRowByConstant(a, r, k);
+                //System.out.println();
+                //Matrix.printMatrix(a);
+            }
+            for (int p = 0 ;p < rowLength ;++p){
+                if (p != r){
+                    while(a[p][lead] != 0) {
+                        double trial = a[p][lead];
+                        RowOperations.multiplyRowByConstant(a, r, a[p][lead]);
+                        RowOperations.substractRowToAnotherRow(a, r, p);
+                        // System.out.println("trial =" + trial);
+                        RowOperations.divideRowByConstant(a, r, trial);
+                        // System.out.println();
+                        // Matrix.printMatrix(a);
+                    }
+                }
+            }
 
-    public static double[][] rowEchelonForm(double[][] a){
+            lead =lead + 1;
+        }
         return a;
     }
 
     // Augment matrix
-
-    // row echelon form ----- important
-
     // Co-factor of matrix
-
     // find the basis of the column matrix
-
     /**
      *  Rank of the Matrix (need row echelon form first)
      *  The rank of A equals the number of

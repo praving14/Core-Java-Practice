@@ -11,13 +11,13 @@ public class RowOperations {
         int columnLength = a[0].length;
         int[] temp = new int[columnLength];
         for (int i= 0; i< columnLength ; ++i){
-            temp[i] = a[row1-1][i];
+            temp[i] = a[row1][i];
         }
         for (int i= 0; i< columnLength ; ++i){
-            a[row1-1][i] =a[row2-1][i];
+            a[row1][i] =a[row2][i];
         }
         for (int i= 0; i< columnLength ; ++i){
-            a[row2-1][i] =temp[i];
+            a[row2][i] =temp[i];
         }
 
         return a;
@@ -27,13 +27,13 @@ public class RowOperations {
         int columnLength = a[0].length;
         double[] temp = new double[columnLength];
         for (int i= 0; i< columnLength ; ++i){
-            temp[i] = a[row1-1][i];
+            temp[i] = a[row1][i];
         }
         for (int i= 0; i< columnLength ; ++i){
-            a[row1-1][i] =a[row2-1][i];
+            a[row1][i] =a[row2][i];
         }
         for (int i= 0; i< columnLength ; ++i){
-            a[row2-1][i] =temp[i];
+            a[row2][i] =temp[i];
         }
         return a;
     }
@@ -50,7 +50,7 @@ public class RowOperations {
     public static int[][] addRowtoAnotherRow(int[][] a, int row1 ,int row2){
         int columnLength = a[0].length;
         for (int i=0; i< columnLength ;++i){
-            a[row2-1][i] += a[row1-1][i];
+            a[row2][i] += a[row1][i];
         }
         return a;
     }
@@ -58,16 +58,39 @@ public class RowOperations {
     public static double[][] addRowtoAnotherRow(double[][] a, int row1 ,int row2){
         int columnLength = a[0].length;
         for (int i=0; i< columnLength ;++i){
-            a[row2-1][i] += a[row1-1][i];
+            a[row2][i] += a[row1][i];
         }
         return a;
     }
 
+    public static int[][] substractRowToAnotherRow(int[][] a, int row1 ,int row2){
+        int columnLength = a[0].length;
+        for (int i=0; i< columnLength ;++i){
+            a[row2][i] -= a[row1][i];
+        }
+        return a;
+    }
+
+    public static double[][] substractRowToAnotherRow(double[][] a, int row1 ,int row2){
+        int columnLength = a[0].length;
+        for (int i=0; i< columnLength ;++i){
+            a[row2][i] -= a[row1][i];
+        }
+        return a;
+    }
 
     public static double[][] multiplyRowByConstant(double[][] a, int row, double constant){
         int columnLength =a[0].length;
         for (int i =0; i< columnLength; ++i){
-            a[row-1][i] = constant*a[row-1][i];
+            a[row][i] = constant*a[row][i];
+        }
+        return a;
+    }
+
+    public static double[][] divideRowByConstant(double[][] a, int row, double constant){
+        int columnLength =a[0].length;
+        for (int i =0; i< columnLength; ++i){
+            a[row][i] = (a[row][i])/constant;
         }
         return a;
     }
