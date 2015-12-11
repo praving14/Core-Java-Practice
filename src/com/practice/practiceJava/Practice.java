@@ -2,6 +2,7 @@ package com.practice.practiceJava;
 
 import java.awt.*;
 import java.lang.Math;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -37,6 +38,17 @@ public class Practice{
         System.out.println("]");
         System.out.println("Average: = " + sum / num);
     }
+
+
+    public static BigInteger fibonacciNumberUsingRecursion(BigInteger number){
+       BigInteger TWO = BigInteger.valueOf(2);
+        if (number.equals(BigInteger.ZERO) || number.equals(BigInteger.ONE))
+            return number;
+        else
+            return fibonacciNumberUsingRecursion(number.subtract(BigInteger.ONE)).add(fibonacciNumberUsingRecursion(number.subtract(TWO)));
+
+    }
+
 
     /**
      * The method that prints out the Fibonacci sequence as double data type using the formula:

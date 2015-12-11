@@ -28,17 +28,33 @@ public class Factorial{
         return result;
     }
 
+    /**
+     * The method to calculate factorial using recursion emthod
+     * @param n  The value of factorial to be calculated
+     * @return   The calculated result for n!
+     */
+    public static long factorialUsingRecursion(int n){
+        if (n<=1){
+            return 1;
+        }else {
+            return n * factorialUsingRecursion(n-1);
+        }
+    }
+
+    // Using BigInteger
+    public static BigInteger factorialUsingRecursion(BigInteger n){
+        if (n.compareTo(BigInteger.ONE) <= 0){
+            return BigInteger.ONE;
+        }else {
+            return n.multiply(factorialUsingRecursion(n.subtract(BigInteger.ONE)));
+        }
+    }
 
     public static void main(String[] args){
-        int n= 100;
-        System.out.println(" The factorial of " + n + " is " + findFactorial(n));
-
-        /*
-        BigInteger bg = BigInteger.ONE;
-        for ( int i = 1; i <=n; ++i){
-            bg = bg.multiply(BigInteger.valueOf(i));
+        for( int j= 1; j <= 100;++j){
+            System.out.printf("%d! = %d %n ", j, factorialUsingRecursion(j));
+            System.out.printf("%d! = %d %n ", j, factorialUsingRecursion(BigInteger.valueOf(j)));
         }
-        System.out.println(" The factorial of " + n + " is " + bg);
-        */
+
     }
 }
